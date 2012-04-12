@@ -7,7 +7,7 @@ class Account extends Database {
 	}
 	
 	public function register($form) 
-	{		//TODO
+	{		//TODO: Registracija
 	}
 	
 	public function login($Username, $Password) 
@@ -20,7 +20,7 @@ class Account extends Database {
 		else 
 		{
 			$_SESSION['account'] = $account; 
-			$_SESSION['character'] = $this->select('*','characters',array('Account_ID' => $account['ID']));
+			//TODO: Izberi char
 		} 
 	}
 	
