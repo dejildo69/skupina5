@@ -59,14 +59,6 @@ if(isset($_GET['register'])) { if(isset($_POST['Register'])) { $Account->registe
 
 			<div class="tab" onclick="navigate('tavern','game_content')">Tavern</div>
 
-			<div class="tab" onclick="navigate('blacksmith','game_content')">Blacksmith</div>
-	
-			<div class="tab" onclick="navigate('equipment','game_content')">Equipment</div>
-
-			<div class="tab" onclick="navigate('market','game_content')">Market</div>
-
-			<div class="tab" onclick="navigate('adventure','game_content')">Adventure</div>
-
 		</div>
 
 		<hr width="100%"/>
