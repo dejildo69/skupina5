@@ -28,6 +28,11 @@ if(isset($_GET['register'])) { if(isset($_POST['Register'])) { $Account->registe
 			$('#'+target).html('<img src="loader-big.gif">');
 			$.get("request.php", {page:location}, function(data) { $('#'+target).html(data); });
 		}
+		$(document).ready(function() {
+
+			navigate('login','account_menu');
+
+		});
 		
 	</script>
 
@@ -43,6 +48,33 @@ if(isset($_GET['register'])) { if(isset($_POST['Register'])) { $Account->registe
 
 	<div class="main_container">	
 		<div class="link_home"><a href="<?php echo(HOME_URL); ?>index.php"><?php echo(HOME_NAME);?></a>
+		</div>
+		<?php if(isset($_SESSION['account']['ID'])) {?>
+
+	<div class="game_container">
+
+		<div class="game_menu">
+
+			<div class="tab" onclick="navigate('home','game_content')">Home</div>
+
+			<div class="tab" onclick="navigate('tavern','game_content')">Tavern</div>
+
+			<div class="tab" onclick="navigate('blacksmith','game_content')">Blacksmith</div>
+	
+			<div class="tab" onclick="navigate('equipment','game_content')">Equipment</div>
+
+			<div class="tab" onclick="navigate('market','game_content')">Market</div>
+
+			<div class="tab" onclick="navigate('adventure','game_content')">Adventure</div>
+
+		</div>
+
+		<hr width="100%"/>
+
+		<div id="game_content">
+
+		</div>
+
 		</div>
 	</div>
 
