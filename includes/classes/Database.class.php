@@ -1,6 +1,6 @@
 <?php
 class Database {
-	private static $host 						= '127.0.0.1';
+	private static $host 						= 'pomaranca.com:3306';
 	private static $user 						= 'sloeddy';
 	private static $pass 						= 'D4v1D123';
 	private static $db 							= 'david_aod';
@@ -9,7 +9,7 @@ class Database {
 	private static $prefix 						= 'aod_';
 	
 	/* Server location variables */
-	private static $base_folder = '\\www\\Praktikum\\';
+	private static $base_folder = '\\srv\\www\\virtual\\krizko.org-ois\\';
 	
 	/* Dynamic variables */
 	protected static $connection 		= '';
@@ -18,7 +18,7 @@ class Database {
 	public function __construct($debug = false) 
 	{
 		/* Establish connection */
-		self::$connection = mysql_connect(self::$host, self::$user, self::$pass);
+		self::$connection = mysql_connect(self::$host, self::$user, self::$pass) OR DIE (mysql_error());
 		self::$debug_mode = $debug;
 		mysql_select_db(self::$db);
 		mysql_query("SET NAMES ".self::$names);
