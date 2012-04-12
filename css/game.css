@@ -1,0 +1,335 @@
+/* Game menu */
+.game_menu {
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:3px;
+	margin-bottom:1px;
+	
+	padding:0px 0px 0px 0px;
+}
+.game_menu div:hover{
+	background-color:rgba(0,0,0,0.2);
+	cursor:pointer;
+}			
+.game_menu .tab {
+	display:inline;
+	padding:5px 5px 8px 5px;
+}
+.game_menu .tab2 {
+	display:inline;
+	padding:5px 5px 8px 5px;
+	background-color:rgba(0,0,0,0.2);
+}
+/* End game menu */
+
+/* Item */
+.game_item {
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	
+	height:65px;
+	width:65px;
+	
+	padding:0px 0px 0px 0px;
+	margin:0px 0px 0px 0px;
+	border-spacing:0px;
+	
+	background-color:rgba(255,255,255,0.7);
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border:5px solid rgba(0,0,0,0.8);
+}
+
+.game_item_equip {
+	position:relative;
+	bottom:68px;
+	left:48px;
+	height:0px;
+	width:0px;
+	z-index:30;
+}
+/* End item */
+
+/* Item's tooltip */
+.game_item_tooltip {
+	background-color:rgba(0,0,0,0.8);
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border:1px solid rgba(0,0,0,0.9);
+	padding:3px 3px 3px 3px;
+	text-align:center;
+	position:absolute;
+	width:250px;
+}
+
+.game_item_tooltip .name {
+	font-size:25px;
+	font-family:Comic Sans MS;
+	color:#8CBEF5;
+}
+.game_item_tooltip .base_name {
+	font-size:15px;
+	font-style:italic;
+	color:#D1D0A9;
+}
+.game_item_tooltip .description {
+	font-size:15px;
+	color:#FFFFFF;
+}
+.game_item_tooltip .stat {
+	font-size:15px;
+	color:#FFFFFF;
+}
+.game_item_tooltip .skill {
+	font-size:15px;
+	color:#BAEDA6;
+}
+.game_item_tooltip .seller {
+	font-size:15px;
+	font-style:italic;
+	color:#FFABAB;
+}
+/* End item's tooltip */
+
+/* Character stats */
+.game_total_stats {
+	display:inline-block;
+	width:448px;
+	height:300px;
+	float:right;
+	padding:3px 3px 3px 3px;
+	
+	background-color:rgba(0,0,0,0.8);
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border:1px solid rgba(0,0,0,0.9);
+	
+	overflow-y:scroll;
+}
+
+.game_total_stats .box_title {
+	font-size:20px;
+	font-family:Comic Sans MS;
+	color:#8CBEF5;
+}
+
+.game_total_stats .name {
+	color:#D1D0A9;
+}
+.game_total_stats .value {
+	color:#E6D953;
+}
+
+.game_total_stats .skill_progress_bar_container {
+	width:102px;
+	height:15px;
+}
+.game_total_stats .skill_progress_bar {
+	
+	background-color:rgba(0,0,0,0.8);
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border:1px solid rgba(0,0,0,0.9);
+	
+	
+	width:102px;
+	height:15px;
+}
+.game_total_stats .skill_progress_bar_filler {
+	
+	background-color:rgba(0,125,0,0.8);
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border:1px solid rgba(0,125,0,0.9);
+	
+	width:100px;
+	height:13px;
+}
+.game_total_stats .skill_progress_bar_text {
+	text-align:center;
+	font-size:10px;
+	color:white;
+	width:102px;
+	position:relative;
+	z-index:2;
+	display:block;
+}
+
+/* End character stats */
+
+/* Character inventory */
+.game_inventory {
+	padding:3px 3px 3px 3px;
+	font-size:1px;
+	
+	background-color:rgba(0,0,0,0.8);
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border:1px solid rgba(0,0,0,0.9);
+}
+.game_inventory .box_title {
+	font-size:20px;
+	font-family:Comic Sans MS;
+	color:#8CBEF5;
+}
+/* End character inventory */
+
+/* Blacksmith interface */
+.game_blacksmith_interface
+{
+	width:440px;
+	height:300px;
+	padding:3px 3px 3px 3px;
+	text-align:center;
+	background-image:url('../images/blacksmith.gif');
+	background-repeat:no-repeat;
+	background-position:center; 
+}
+
+.game_blacksmith_interface .blacksmith_table
+{
+	text-align:center;
+	display:inline-block;
+}
+
+.game_blacksmith_interface .combination_result_container
+{
+	vertical-align:top;
+	height:190px;
+	text-align:center;
+}
+
+.game_blacksmith_interface .combination_result
+{
+}
+
+.game_blacksmith_interface .combination_result .forge_summary_title
+{
+	font-size:15px;
+	font-family:Comic Sans MS;
+	color:#8CBEF5;
+}
+
+.game_blacksmith_interface .combination_result .forge_summary
+{
+	background-color:rgba(0,0,0,0.8);
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border:1px solid rgba(0,0,0,0.9);
+	display:inline-block;
+}
+
+.game_blacksmith_interface .combination_result .forge_summary .old_stat
+{
+	color:#FFFFFF;
+}
+
+.game_blacksmith_interface .combination_result .forge_summary .old_stat_value
+{
+	color:#E6D953;
+}
+
+.game_blacksmith_interface .combination_result .forge_summary .new_stat
+{
+	color:#9BEBC3;
+}
+.game_blacksmith_interface .combination_result .forge_summary .new_stat_value
+{
+	color:#9BEBC3;
+}
+
+
+.game_blacksmith_interface #blacksmith_slot_01_forge
+{
+	background-color:rgba(0,255,0,0.1);
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border:1px solid rgba(0,255,0,0.1);
+}
+.game_blacksmith_interface #blacksmith_slot_01_forge:hover
+{
+	cursor:pointer;
+	background-color:rgba(0,255,0,0.4);
+}
+
+/* End blacksmith interface */
+
+/* Market interface */
+.game_market_categories {
+	padding:3px 3px 3px 3px;	
+	width:250px;
+	background-color:rgba(0,0,0,0.8);
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border:1px solid rgba(0,0,0,0.9);
+}
+.game_market_categories .title {
+	font-size:15px;
+	font-family:Comic Sans MS;
+	color:#8CBEF5;
+}
+.game_market_categories .categories {
+	height:300px;
+	width:250px;
+	overflow-y:scroll;
+}
+
+.game_market_categories .selectCategory {
+	display:inline-block;
+}
+.game_market_categories .selectCategory span:hover {
+	color:#F7D17E;
+	text-decoration:underline;
+	cursor:pointer;
+}
+
+.game_market_browse {
+	padding:3px 3px 3px 3px;	
+	background-color:rgba(0,0,0,0.8);
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border:1px solid rgba(0,0,0,0.9);
+	vertical-align:top;
+	text-align:justify;
+}
+.game_market_browse .shopping_list {
+	overflow-y:scroll;
+	height:300px;
+}
+.game_market_browse .shopping_list .shopping_item {
+	display:inline-block;
+}
+.game_market_browse .shopping_list .shopping_item .price {
+	text-align:right;
+	color:green;
+}
+.game_market_browse .title {
+	font-size:15px;
+	font-family:Comic Sans MS;
+	color:#8CBEF5;
+}
+/* End market interface */
+
+/* Prompt set price */
+.enterPrice_container {
+	background-color:rgba(0,0,0,0.8);
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border:1px solid rgba(0,0,0,0.9);
+	padding:5px 5px 5px 5px;
+	position:absolute;
+	z-index:100000;
+}
+
+.enterPrice {
+}
+/* End prompt set price */
+
+.game_paper_doll {
+	border-spacing:0px;
+	
+	background-image:url('../images/paper_doll.gif');
+	background-repeat:no-repeat;
+	background-position:center; 
+}
