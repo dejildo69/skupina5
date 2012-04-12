@@ -51,23 +51,19 @@ if(isset($_GET['register'])) { if(isset($_POST['Register'])) { $Account->registe
 		</div>
 		<?php if(isset($_SESSION['account']['ID'])) {?>
 
-	<div class="game_container">
-
-		<div class="game_menu">
-
-			<div class="tab" onclick="navigate('home','game_content')">Home</div>
-
-			<div class="tab" onclick="navigate('tavern','game_content')">Tavern</div>
-
-		</div>
-
+		<div class="game_container">
+			<div class="game_menu">
+				<div class="tab" onclick="navigate('home','game_content')">Home</div>
+				<div class="tab" onclick="navigate('tavern','game_content')">Tavern</div>
+			</div>
+		
 		<hr width="100%"/>
 
-		<div id="game_content">
+			<div id="game_content">
 
-		</div>
-
+			</div>
 		</div>
 	</div>
-
+	<?php } ?>
+	
 </body>
