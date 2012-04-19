@@ -20,7 +20,7 @@ class Account extends Database {
 		else 
 		{
 			$_SESSION['account'] = $account; 
-			//TODO: Izberi char
+			$_SESSION['character'] = $this->select('*','characters',array('Account_ID' => $account['ID']));
 		} 
 	}
 	
