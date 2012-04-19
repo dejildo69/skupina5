@@ -55,6 +55,7 @@ if(isset($_GET['register'])) { if(isset($_POST['Register'])) { $Account->registe
 			<div class="game_menu">
 				<div class="tab" onclick="navigate('home','game_content')">Home</div>
 				<div class="tab" onclick="navigate('tavern','game_content')">Tavern</div>
+				<div class="tab" onclick="navigate('adventure','game_content')">Adventure</div>
 			</div>
 		
 		<hr width="100%"/>
