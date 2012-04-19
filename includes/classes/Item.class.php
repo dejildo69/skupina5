@@ -200,6 +200,180 @@ class Item extends Database {
 
 }
 
+public function getRandomSkin($item_key)
+{
+
+	if(rand(0,50) > 50) 
+
+	{
+
+		$existant_skins = $this->select('*','skins',array('Item_type' => $item_key));
+
+		if(count($existant_skins) > 10) { return $existant_skins[rand(0,count($existant_skins)-1)]['ID']; }
+
+	}
+
+	
+
+	$skin = $this->load('Skin');
+
+	$item = $this->selectRecurse('*','item_types',array('Key' => $item_key));
+
+	return $skin->getSkin($item);
+
+}
+
+public function getForgeSummary($slot, $character_id = false)
+{
+
+	$slot = substr($slot, 0, -6);
+
+	if($character_id == false) { $character_id = $_SESSION['character']['ID']; }
+
+	$smithing_items = $this->select('*','items',"`Character_ID` = '".$character_id."' AND `Slot` LIKE '%blacksmith%'",true);
+
+	$upgrading_slot = $slot;
+
+	$minor_item_slot = '';
+
+	if($slot == 'blacksmith_slot_02') { $minor_item_slot = 'blacksmith_slot_01'; } else { $minor_item_slot = 'blacksmith_slot_02'; }
+
+	
+
+	if(count($smithing_items) == 2)
+
+	{
+
+		$forgeSummary = array();			
+
+		$major = $this->getItem($upgrading_slot, $character_id);
+
+		$minor = $this->getItem($minor_item_slot, $character_id);
+
+		
+
+		if($minor !== false) 
+
+		{
+
+			foreach($minor['Stats'] as $stat)
+
+			{
+
+				if(isset($major['Stats'][$stat['Key']])) 
+
+				{ 
+
+					$forgeSummary[$stat['Key']] = $major['Stats'][$stat['Key']];
+
+					$forgeSummary[$stat['Key']]['Increase'] = $stat['Value'] * 0.15;
+
+					$forgeSummary[$stat['Key']]['AlterationType'] = 'old_stat';
+
+				}
+
+				else 
+
+				{ 
+
+					$forgeSummary[$stat['Key']] = $stat;
+
+					$forgeSummary[$stat['Key']]['Increase'] = $stat['Value'] * 0.15;
+
+					$forgeSummary[$stat['Key']]['AlterationType'] = 'new_stat';
+
+				}
+
+			}
+
+		}
+
+		return $forgeSummary;
+
+	} else { return false; }
+
+}	
+
+
+
+public function forge($slot, $character_id = false)
+{
+
+	$slot = substr($slot, 0, -6);
+
+	if($character_id == false) { $character_id = $_SESSION['character']['ID']; }
+
+	$smithing_items = $this->select('*','items',"`Character_ID` = '".$character_id."' AND `Slot` LIKE '%blacksmith%'",true);
+
+	$upgrading_slot = $slot;
+
+	$minor_item_slot = '';
+
+	if($slot == 'blacksmith_slot_02') { $minor_item_slot = 'blacksmith_slot_01'; } else { $minor_item_slot = 'blacksmith_slot_02'; }
+
+	
+
+	if(count($smithing_items) == 2)
+
+	{
+
+		$major = $this->getItem($upgrading_slot, $character_id);
+
+		$minor = $this->getItem($minor_item_slot, $character_id);
+
+		$inv_slot_id = $this->getEmptyInventorySlot($character_id);
+
+		
+
+		if($minor !== false) 
+
+		{
+
+			foreach($minor['Stats'] as $stat)
+
+			{
+
+				if(isset($major['Stats'][$stat['Key']])) 
+
+				{ 
+
+					$alteration = $stat['Value'] * 0.15;
+
+					$base = $major['Stats'][$stat['Key']]['Value'];
+
+					$this->update('items_stats',array('Value' => ($alteration + $base)),array('Item_ID' => $major['ID'], 'Property_ID' => $stat['ID']));
+
+				}
+
+				else 
+
+				{ 
+
+					$alteration = $stat['Value'] * 0.15;
+
+					$this->update('items_stats',array('Item_ID' => $major['ID'], 'Value' => $alteration),array('Item_ID' => $minor['ID'], 'Property_ID' => $stat['ID']));
+
+				}
+
+			}
+
+			
+
+			$result = mysql_query("DELETE FROM `aod_items` WHERE `ID` = '".$minor['ID']."'");
+
+			$result = mysql_query("DELETE FROM `aod_items_stats` WHERE `Item_ID` = '".$minor['ID']."'");
+
+			$this->update('items',array('Slot' => $inv_slot_id),array('ID' => $major['ID']));
+
+		}
+
+		
+
+		return array($inv_slot_id);
+
+	}
+
+}
 
 
 ?>
