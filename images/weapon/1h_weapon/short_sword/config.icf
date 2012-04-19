@@ -1,0 +1,4 @@
+Comment: DEST_X DEST_Y SRC_X SRC_Y SRC_WIDTH SRC_HEIGHT MIN_HUE MAX_HUE MIN_LIGHT MAX_LIGHT - .icf v1.0
+top 0 0 0 0 60 37 0 100 70 100
+middle 0 37 0 0 60 9 3 50 10 80
+bottom 0 46 0 0 60 14 middle middle middle middle
